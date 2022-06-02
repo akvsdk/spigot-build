@@ -10,14 +10,14 @@ jobs:
       - name: Use JDK
         uses: actions/setup-java@v1
         with:
-          java-version: "8" # The JDK version to make available on the path.
+          java-version: "17" # The JDK version to make available on the path.
           java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
           architecture: x64 # (x64 or x86) - defaults to x64
       - name: Get Spigot BuildTools
         # https://hub.spigotmc.org/jenkins/job/BuildTools/
         run: wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
       - name: Build Spigot
-        run: java -jar BuildTools.jar --rev 1.16.5
+        run: java -jar BuildTools.jar --rev 1.18.2
       - name: Organize File
         run: |
           echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
